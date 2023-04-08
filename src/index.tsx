@@ -2,7 +2,7 @@ import React from "react";
 import { Tooltip } from "@radix-ui/react-tooltip";
 import "tailwindcss/tailwind.css";
 
-type HeatmapData = { date: Date; count: number }[];
+type HeatmapData = { date: string; count: number }[];
 
 interface HeatmapProps {
   data: HeatmapData;
@@ -12,7 +12,9 @@ const Heatmap: React.FC<HeatmapProps> = ({ data }) => {
   const halfYearAgo = new Date();
   halfYearAgo.setMonth(halfYearAgo.getMonth() - 6);
 
-  const filteredData = data.filter((item) => item.date >= halfYearAgo);
+  const filteredData = data.filter(
+    (item) => new Date(item.date) >= halfYearAgo
+  );
 
   const getColor = (count: number) => {
     if (count >= 9) return "bg-heatmap-pink-500";
@@ -46,7 +48,7 @@ const Heatmap: React.FC<HeatmapProps> = ({ data }) => {
       const count = item.count;
       const color = getColor(count);
       return (
-        <Tooltip key={item.date.toISOString()}>
+        <Tooltip key={item.date}>
           <div className={`w-3 h-3 ${color} rounded-sm`}></div>
         </Tooltip>
       );
