@@ -1,5 +1,5 @@
 import React from "react";
-import { Tooltip } from "@radix-ui/react-tooltip";
+import { Tooltip, TooltipProvider } from "@radix-ui/react-tooltip";
 import "tailwindcss/tailwind.css";
 
 type HeatmapData = { date: string; count: number }[];
@@ -57,13 +57,15 @@ const Heatmap: React.FC<HeatmapProps> = ({ data }) => {
   // tooltipContent={item.count}  ?content={`Count: ${count}`}
 
   return (
-    <div className="flex flex-col">
-      <div className="text-xs mb-1">{renderMonths()}</div>
-      <div className="flex">
-        <div className="flex flex-col mr-1">{renderWeekdays()}</div>
-        <div className="grid grid-cols-7 gap-1">{renderHeatmap()}</div>
+    <TooltipProvider>
+      <div className="flex flex-col">
+        <div className="text-xs mb-1">{renderMonths()}</div>
+        <div className="flex">
+          <div className="flex flex-col mr-1">{renderWeekdays()}</div>
+          <div className="grid grid-cols-7 gap-1">{renderHeatmap()}</div>
+        </div>
       </div>
-    </div>
+    </TooltipProvider>
   );
 };
 
