@@ -18,11 +18,11 @@ Import the `Heatmap` component and use it in your React.
 
 ## Configuration
 
-The `Heatmap` component accepts the following props:
+The `Heatmap` component accepts the following props
 
-- value: An array of objects with the following properties:
-- date: A string representing the date (e.g., "2023-01-01")
-- count: A number representing the count for that date
+- value: An array of objects with the following properties
+  - date: A string representing the date (e.g., "2023-01-01")
+  - count: A number representing the count for that date
 - containerSize: A string specifying the size of the container (e.g., "800px")
 - color: An array of strings representing the colors for each step
 - step: A number representing the step interval for the colors
