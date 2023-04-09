@@ -1,10 +1,13 @@
-import React from "react";
+import { FC } from "react";
 
-export type HeatmapData = { date: Date; count: number }[];
+export type HeatmapProps = {
+  value: {
+    date: string;
+    count: number;
+  }[];
+  containerSize: string;
+  color: string[];
+  step: number;
+};
 
-export interface HeatmapProps {
-  data: HeatmapData;
-}
-
-declare const Heatmap: React.FC<HeatmapProps>;
-export default Heatmap;
+export type HeatmapComponent = FC<HeatmapProps>;
