@@ -3,11 +3,11 @@ import { HeatmapComponent } from "./index.d";
 const DEFAULT_CONTAINER_SIZE = "50rem";
 
 const DEFAULT_COLOR_LEVELS = [
-  "bg-gray-50",
-  "bg-rose-100",
-  "bg-rose-200",
-  "bg-rose-300",
-  "bg-rose-400",
+  "#f9fafb",
+  "#ffe4e6",
+  "#fecdd3",
+  "#fda4af",
+  "#fb7185",
 ];
 
 const DEFAULT_COLOR_RANGE_STEP = 10;
@@ -38,7 +38,8 @@ export const Heatmap: HeatmapComponent = ({
           return (
             <div
               key={index}
-              className={`aspect-square rounded-sm ${color}`}
+              className="aspect-square rounded-sm"
+              style={{ color: `${color}` }}
               title={item.date}
             ></div>
           );
