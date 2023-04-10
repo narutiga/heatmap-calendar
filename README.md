@@ -1,4 +1,6 @@
-# @narutiga/heatmap
+Attention: This is currently under development.
+
+# @narutiga/heatmap-calendar
 
 A simple React package for easily creating heatmap visualizations, similar to GitHub contributions. This package is creating for learning purposes, and any feedback or suggestions from the community are welcome.
 ![sample image](https://user-images.githubusercontent.com/100295602/230772586-6f2df1a7-8872-4200-a2ce-85ed060b02af.png)
@@ -25,8 +27,8 @@ The `Heatmap` component accepts the following props
   - date: A string representing the date (e.g., "2023-01-01")
   - count: A number representing the count for that date
 - containerSize: A string specifying the size of the container (e.g., "800px")
-- color: An array of strings representing the colors for each step. The color grading is divided into five levels.
-- step: A number representing the step interval for the colors
+- colorLevels: An array of strings representing the colors for each step. The color grading is divided into five levels.
+- colorRangeStep: A number representing the step interval for the colors
 
 ```bash
 import { Heatmap } from "@narutiga/heatmap";
