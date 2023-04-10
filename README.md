@@ -12,7 +12,7 @@ To install the package, run the following command:
 ```bash
 npm install @narutiga/heatmap-calendar
 or
-yarn add @narutiga/heatmap-calender
+yarn add @narutiga/heatmap-calendar
 ```
 
 ## Usage
