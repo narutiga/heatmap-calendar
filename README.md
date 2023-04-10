@@ -10,9 +10,9 @@ A simple React package for easily creating heatmap visualizations, similar to Gi
 To install the package, run the following command:
 
 ```bash
-npm install @narutiga/heatmap
+npm install @narutiga/heatmap-calendar
 or
-yarn add @narutiga/heatmap
+yarn add @narutiga/heatmap-calender
 ```
 
 ## Usage
