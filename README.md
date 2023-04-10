@@ -47,11 +47,11 @@ const Home: FC = () => {
         value={value}
         containerSize="800px"
         color={[
-          "bg-gray-50",
-          "bg-rose-100",
-          "bg-rose-200",
-          "bg-rose-300",
-          "bg-rose-400",
+          "#f9fafb",
+          "#ffe4e6",
+          "#fecdd3",
+          "#fda4af",
+          "#fb7185",
         ]}
         step={10}
       />
