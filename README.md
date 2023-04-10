@@ -23,7 +23,7 @@ Import the `Heatmap` component and use it in your React.
 
 The `Heatmap` component accepts the following props
 
-- value: An array of objects with the following properties
+- value: An array of objects with the following properties.(Required)
   - date: A string representing the date (e.g., "2023-01-01")
   - count: A number representing the count for that date
 - containerSize: A string specifying the size of the container (e.g., "800px")
