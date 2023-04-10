@@ -39,7 +39,7 @@ export const Heatmap: HeatmapComponent = ({
             <div
               key={index}
               className="aspect-square rounded-sm"
-              style={{ color: `${color}` }}
+              style={{ backgroundColor: `${color}` }}
               title={item.date}
             ></div>
           );
