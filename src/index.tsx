@@ -4,11 +4,11 @@ export const Heatmap: HeatmapComponent = (props) => {
   const firstDay = new Date(props.value[0].date).getDay();
 
   const getColor = (count: number) => {
-    if (count === 0) return props.color[0];
-    if (count < props.step) return props.color[1];
-    if (count < props.step * 2) return props.color[2];
-    if (count < props.step * 3) return props.color[3];
-    return props.color[4];
+    if (count === 0) return props.colorLevels[0];
+    if (count < props.colorRangeStep) return props.colorLevels[1];
+    if (count < props.colorRangeStep * 2) return props.colorLevels[2];
+    if (count < props.colorRangeStep * 3) return props.colorLevels[3];
+    return props.colorLevels[4];
   };
 
   return (
