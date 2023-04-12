@@ -36,7 +36,7 @@ The `Heatmap` component accepts the following props:
 - colorRangeStep: A number representing the step interval for the colors.
 
 ```bash
-import { Heatmap } from "@narutiga/heatmap";
+import { Heatmap } from "@narutiga/heatmap-calendar";
 
 const value = [
     {date: "2023-04-10",count: 2},
