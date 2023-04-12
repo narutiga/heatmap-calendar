@@ -6,11 +6,14 @@ export type LegendProps = {
 
 export type LegendComponent = FC<LegendProps>;
 
+export type DataPoint = {
+  date: string;
+  count: number;
+};
+
 export type HeatmapProps = {
-  value: {
-    date: string;
-    count: number;
-  }[];
+  value: DataPoint[];
+  endDate?: string;
   w?: string;
   colorLevels?: string[];
   colorRangeStep?: number;

@@ -1,4 +1,15 @@
-import { HeatmapComponent, LegendComponent } from "./index.d";
+import { DataPoint, HeatmapComponent, LegendComponent } from "./index.d";
+
+const getCurrentDateString = (): string => {
+  const today = new Date();
+  const year = today.getFullYear();
+  const month = String(today.getMonth() + 1).padStart(2, "0");
+  const day = String(today.getDate()).padStart(2, "0");
+
+  return `${year}-${month}-${day}`;
+};
+
+const END_DATE = getCurrentDateString();
 
 const DEFAULT_WIDTH = "50rem";
 
@@ -30,8 +41,9 @@ const Legend: LegendComponent = ({ colorLevels }) => {
   );
 };
 
-export const Heatmap: HeatmapComponent = ({
+export const HeatmapDemo: HeatmapComponent = ({
   value,
+  endDate = END_DATE,
   w = DEFAULT_WIDTH,
   colorLevels = DEFAULT_COLOR_LEVELS,
   colorRangeStep = DEFAULT_COLOR_RANGE_STEP,
@@ -46,12 +58,34 @@ export const Heatmap: HeatmapComponent = ({
     return colorLevels[4];
   };
 
+  const generateYearData = (data: DataPoint[], endDateStr: string) => {
+    const endDate = new Date(endDateStr);
+    const startDate = new Date(endDate);
+    startDate.setFullYear(startDate.getFullYear() - 1);
+
+    const dateCountMap = new Map<string, number>();
+    data.forEach(({ date, count }) => {
+      dateCountMap.set(date, count);
+    });
+
+    const result: DataPoint[] = [];
+    for (let d = startDate; d <= endDate; d.setDate(d.getDate() + 1)) {
+      const dateStr = d.toISOString().slice(0, 10);
+      const count = dateCountMap.has(dateStr) ? dateCountMap.get(dateStr) : 0;
+      result.push({ date: dateStr, count: count as number });
+    }
+
+    return result;
+  };
+
+  const yearData = generateYearData(value, endDate);
+
   return (
-    <div className={`w-${w}`}>
+    <div>
       <div
         className={`grid grid-flow-col grid-rows-7 gap-0.5 row-start-${firstDay}`}
       >
-        {value.map((item, index) => {
+        {yearData.map((item, index) => {
           const color = getColor(item.count);
           return (
             <div
