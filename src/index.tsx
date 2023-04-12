@@ -1,6 +1,6 @@
-import { HeatmapComponent } from "./index.d";
+import { HeatmapComponent, LegendComponent } from "./index.d";
 
-const DEFAULT_CONTAINER_SIZE = "50rem";
+const DEFAULT_WIDTH = "50rem";
 
 const DEFAULT_COLOR_LEVELS = [
   "#f9fafb",
@@ -12,9 +12,27 @@ const DEFAULT_COLOR_LEVELS = [
 
 const DEFAULT_COLOR_RANGE_STEP = 10;
 
+const Legend: LegendComponent = ({ colorLevels }) => {
+  return (
+    <div className="flex justify-end items-center mt-2">
+      <p className="mr-1  text-gray-500 font-light">less</p>
+      {colorLevels.map((color, index) => {
+        return (
+          <div
+            key={index}
+            className="mr-1 h-3 w-3 rounded-sm"
+            style={{ backgroundColor: `${color}` }}
+          ></div>
+        );
+      })}
+      <p className="mr-8  text-gray-500 font-light">more</p>
+    </div>
+  );
+};
+
 export const Heatmap: HeatmapComponent = ({
   value,
-  containerSize = DEFAULT_CONTAINER_SIZE,
+  w = DEFAULT_WIDTH,
   colorLevels = DEFAULT_COLOR_LEVELS,
   colorRangeStep = DEFAULT_COLOR_RANGE_STEP,
 }) => {
@@ -29,7 +47,7 @@ export const Heatmap: HeatmapComponent = ({
   };
 
   return (
-    <div className={`@container w-[${containerSize}]`}>
+    <div className={`w-${w}`}>
       <div
         className={`grid grid-flow-col grid-rows-7 gap-0.5 row-start-${firstDay}`}
       >
@@ -45,6 +63,7 @@ export const Heatmap: HeatmapComponent = ({
           );
         })}
       </div>
+      <Legend colorLevels={colorLevels} />
     </div>
   );
 };

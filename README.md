@@ -1,8 +1,8 @@
-Attention: This is currently under development.
+Attention: This project is currently under development.
 
 # @narutiga/heatmap-calendar
 
-A simple React package for easily creating heatmap visualizations, similar to GitHub contributions. This package is creating for learning purposes, and any feedback or suggestions from the community are welcome.
+A simple React package for easily creating heatmap visualizations, similar to GitHub contributions. This package was created for learning purposes, and any feedback or suggestions from the community are welcome.
 ![sample image](https://user-images.githubusercontent.com/100295602/231303527-b386f39d-78c6-4a9f-9ee0-e9bf0e789e96.png)
 
 ## Installation
@@ -17,18 +17,23 @@ yarn add @narutiga/heatmap-calendar
 
 ## Usage
 
-Import the `Heatmap` component and use it in your React.
+Import the 'Heatmap' component and use it in your React app.
 
 ## Configuration
 
-The `Heatmap` component accepts the following props
+The `Heatmap` component accepts the following props:
 
-- value: An array of objects with the following properties.(Required)
-  - date: A string representing the date (e.g., "2023-01-01")
-  - count: A number representing the count for that date
-- containerSize: A string specifying the width of the container (e.g., "50rem")
+### Required
+
+- value: An array of objects with the following properties
+  - date: A string representing the date (e.g., "2023-01-01").
+  - count: A number representing the count for that date.
+
+### Optional
+
+- w: A string specifying the width of the container (e.g., "50rem").
 - colorLevels: An array of strings representing the colors for each step. The color grading is divided into five levels.
-- colorRangeStep: A number representing the step interval for the colors
+- colorRangeStep: A number representing the step interval for the colors.
 
 ```bash
 import { Heatmap } from "@narutiga/heatmap";
@@ -45,7 +50,7 @@ const Home: FC = () => {
     <div>
       <Heatmap
         value={value}
-        containerSize="800px"
+        w="50rem"
         colorLevels={[
           "#f9fafb",
           "#ffe4e6",
