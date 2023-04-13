@@ -1,5 +1,7 @@
 import { DataPoint, HeatmapComponent, LegendComponent } from "./index.d";
 
+// Default value
+
 const getCurrentDateString = (): string => {
   const today = new Date();
   const year = today.getFullYear();
@@ -22,6 +24,31 @@ const DEFAULT_COLOR_LEVELS = [
 ];
 
 const DEFAULT_COLOR_RANGE_STEP = 10;
+
+// Function
+
+const generateYearData = (data: DataPoint[], endDateStr: string) => {
+  const firstDay = new Date(endDateStr).getDay();
+  const endDate = new Date(endDateStr);
+  const startDate = new Date(endDate);
+  startDate.setDate(startDate.getDate() - 364 - firstDay);
+
+  const dateCountMap = new Map<string, number>();
+  data.forEach(({ date, count }) => {
+    dateCountMap.set(date, count);
+  });
+
+  const result: DataPoint[] = [];
+  for (let d = startDate; d <= endDate; d.setDate(d.getDate() + 1)) {
+    const dateStr = d.toISOString().slice(0, 10);
+    const count = dateCountMap.has(dateStr) ? dateCountMap.get(dateStr) : 0;
+    result.push({ date: dateStr, count: count as number });
+  }
+
+  return result;
+};
+
+// Component
 
 const Legend: LegendComponent = ({ colorLevels }) => {
   return (
@@ -48,7 +75,7 @@ export const Heatmap: HeatmapComponent = ({
   colorLevels = DEFAULT_COLOR_LEVELS,
   colorRangeStep = DEFAULT_COLOR_RANGE_STEP,
 }) => {
-  const firstDay = new Date(value[0].date).getDay();
+  const yearData = generateYearData(value, endDate);
 
   const getColor = (count: number) => {
     if (count === 0) return colorLevels[0];
@@ -58,33 +85,9 @@ export const Heatmap: HeatmapComponent = ({
     return colorLevels[4];
   };
 
-  const generateYearData = (data: DataPoint[], endDateStr: string) => {
-    const endDate = new Date(endDateStr);
-    const startDate = new Date(endDate);
-    startDate.setFullYear(startDate.getFullYear() - 1);
-
-    const dateCountMap = new Map<string, number>();
-    data.forEach(({ date, count }) => {
-      dateCountMap.set(date, count);
-    });
-
-    const result: DataPoint[] = [];
-    for (let d = startDate; d <= endDate; d.setDate(d.getDate() + 1)) {
-      const dateStr = d.toISOString().slice(0, 10);
-      const count = dateCountMap.has(dateStr) ? dateCountMap.get(dateStr) : 0;
-      result.push({ date: dateStr, count: count as number });
-    }
-
-    return result;
-  };
-
-  const yearData = generateYearData(value, endDate);
-
   return (
-    <div>
-      <div
-        className={`grid grid-flow-col grid-rows-7 gap-0.5 row-start-${firstDay}`}
-      >
+    <div style={{ width: `${w}` }}>
+      <div className="grid grid-flow-col grid-rows-7 gap-0.5">
         {yearData.map((item, index) => {
           const color = getColor(item.count);
           return (
