@@ -81,10 +81,8 @@ export const Heatmap: HeatmapComponent = ({
   const yearData = generateYearData(value, endDate);
 
   return (
-    <div>
-      <div
-        className={`grid grid-flow-col grid-rows-7 gap-0.5 row-start-${firstDay}`}
-      >
+    <div style={{ width: `${w}` }}>
+      <div className="grid grid-flow-col grid-rows-7 gap-0.5">
         {yearData.map((item, index) => {
           const color = getColor(item.count);
           return (
