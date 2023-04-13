@@ -31,7 +31,7 @@ The `Heatmap` component accepts the following props:
 
 ### Optional
 
-- w: A string specifying the width of the container (e.g., "50rem").
+- w: A string specifying the width of the container (e.g., "50rem" or "600px").
 - colorLevels: An array of strings representing the colors for each step. The color grading is divided into five levels.
 - colorRangeStep: A number representing the step interval for the colors.
 
@@ -39,9 +39,12 @@ The `Heatmap` component accepts the following props:
 import { Heatmap } from "@narutiga/heatmap-calendar";
 
 const value = [
-    {date: "2023-04-10",count: 2},
-    {date: "2023-04-09",count: 23},
-    {date: "2023-04-08",count: 17},
+  { date: "2023-04-13", count: 13 },
+  { date: "2023-04-10", count: 2 },
+  { date: "2023-04-06", count: 23 },
+  { date: "2023-04-02", count: 17 },
+  { date: "2023-04-01", count: 7 },
+  { date: "2023-03-27", count: 37 },
     ...
     ];
 
