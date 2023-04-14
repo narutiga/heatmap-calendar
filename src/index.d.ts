@@ -1,17 +1,17 @@
 import { FC } from "react";
 
-export type LegendProps = {
+type LegendProps = {
   colorLevels: string[];
 };
 
-export type LegendComponent = FC<LegendProps>;
+type LegendComponent = FC<LegendProps>;
 
-export type DataPoint = {
+type DataPoint = {
   date: string;
   count: number;
 };
 
-export type HeatmapProps = {
+type HeatmapProps = {
   value: DataPoint[];
   endDate?: string;
   w?: string;
