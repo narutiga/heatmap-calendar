@@ -1,6 +1,6 @@
 {
   "name": "@narutiga/heatmap-calendar",
-  "version": "0.1.25",
+  "version": "0.1.26",
   "description": "A React package for easily creating heatmap visualizations.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -14,14 +14,14 @@
   },
   "author": "narutiga",
   "license": "MIT",
-  "peerDependencies": {
+  "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "tailwindcss": "^3.3.1"
+    "tailwindcss": "^3.3.1",
+    "typescript": "^5.0.2"
   },
   "devDependencies": {
-    "@types/react": "^18.0.28",
-    "typescript": "^5.0.2"
+    "@types/react": "^18.0.28"
   },
   "publishConfig": {
     "access": "public"
