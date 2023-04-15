@@ -9,7 +9,7 @@
     "url": "https://github.com/narutiga/heatmap"
   },
   "scripts": {
-    "build": "tsc && cp src/index.d.ts dist/",
+    "build": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "narutiga",
