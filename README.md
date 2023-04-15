@@ -35,7 +35,7 @@ The `Heatmap` component accepts the following props:
 - colorLevels: An array of strings representing the colors for each step. The color grading is divided into five levels.
 - colorRangeStep: A number representing the step interval for the colors.
 
-```bash
+```jsx
 import { Heatmap } from "@narutiga/heatmap-calendar";
 
 const value = [
@@ -45,8 +45,7 @@ const value = [
   { date: "2023-04-02", count: 17 },
   { date: "2023-04-01", count: 7 },
   { date: "2023-03-27", count: 37 },
-    ...
-    ];
+];
 
 const Home: FC = () => {
   return (
@@ -54,13 +53,7 @@ const Home: FC = () => {
       <Heatmap
         value={value}
         w="50rem"
-        colorLevels={[
-          "#f9fafb",
-          "#ffe4e6",
-          "#fecdd3",
-          "#fda4af",
-          "#fb7185",
-        ]}
+        colorLevels={["#f9fafb", "#ffe4e6", "#fecdd3", "#fda4af", "#fb7185"]}
         colorRangeStep={10}
       />
     </div>
