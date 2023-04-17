@@ -17,7 +17,15 @@ yarn add @narutiga/heatmap-calendar
 
 ## Usage
 
-Import the 'Heatmap' component and use it in your React app.
+1. Add the @tailwind directives for each of Tailwind’s layers to your main CSS file.
+
+```css
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+```
+
+2. Import the 'Heatmap' component and use it in your React app.
 
 ## Configuration
 
