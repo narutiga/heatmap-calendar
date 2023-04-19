@@ -1,3 +1,4 @@
+import "./index.css";
 import { DataPoint, HeatmapComponent, LegendComponent } from "./index.d";
 
 // Default value
