@@ -13,7 +13,7 @@
     "url": "https://github.com/narutiga/heatmap"
   },
   "scripts": {
-    "build:css": "NODE_ENV=production npx postcss src/index.css -o dist/index.css",
+    "build:css": "NODE_ENV=production npx postcss src/index.css -o dist/esm/index.css",
     "build": "rollup -c",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
