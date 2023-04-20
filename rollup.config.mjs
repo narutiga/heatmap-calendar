@@ -8,11 +8,11 @@ import pkg from "./package.json" assert { type: "json" };
 export default {
   input: "src/index.tsx",
   output: [
-    // {
-    //   file: pkg.main,
-    //   format: "cjs",
-    //   sourcemap: true,
-    // },
+    {
+      file: pkg.main,
+      format: "cjs",
+      sourcemap: true,
+    },
     {
       file: pkg.module,
       format: "esm",
