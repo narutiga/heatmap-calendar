@@ -1,4 +1,4 @@
-Attention: This project is currently under development and provides only the minimum functionality.
+Attention: This project is currently under development.
 
 # @narutiga/heatmap-calendar
 
