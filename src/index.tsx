@@ -1,5 +1,28 @@
 import "./index.css";
-import { DataPoint, HeatmapComponent, LegendComponent } from "./index.d";
+import { FC } from "react";
+
+// Type
+
+type LegendProps = {
+  colorLevels: string[];
+};
+
+type LegendComponent = FC<LegendProps>;
+
+type DataPoint = {
+  date: string;
+  count: number;
+};
+
+type HeatmapProps = {
+  value: DataPoint[];
+  endDate?: string;
+  w?: string;
+  colorLevels?: string[];
+  colorRangeStep?: number;
+};
+
+type HeatmapComponent = FC<HeatmapProps>;
 
 // Default value
 
