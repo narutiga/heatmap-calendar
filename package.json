@@ -1,6 +1,6 @@
 {
   "name": "@narutiga/heatmap-calendar",
-  "version": "0.1.40",
+  "version": "0.1.41",
   "description": "A React package for easily creating heatmap visualizations.",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
