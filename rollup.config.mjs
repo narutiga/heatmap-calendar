@@ -26,14 +26,15 @@ export default {
       tsconfig: "./tsconfig.json",
     }),
     postcss({
+      extensions: [".css"],
+      minimize: true,
+      extract: true,
       config: {
         path: "./postcss.config.js",
       },
-      extensions: [".css"],
-      minimize: true,
-      inject: {
-        insertAt: "top",
-      },
+      // inject: {
+      //   insertAt: "top",
+      // },
     }),
   ],
 };
