@@ -1,5 +1,6 @@
 import commonjs from "@rollup/plugin-commonjs";
 import resolve from "@rollup/plugin-node-resolve";
+import babel from "@rollup/plugin-babel";
 import typescript from "@rollup/plugin-typescript";
 import postcss from "rollup-plugin-postcss";
 
@@ -22,19 +23,22 @@ export default {
   plugins: [
     resolve(),
     commonjs(),
+    babel({
+      babelHelpers: "bundled",
+      exclude: "node_modules/**",
+    }),
     typescript({
       tsconfig: "./tsconfig.json",
     }),
     postcss({
-      extensions: [".css"],
-      minimize: true,
-      extract: true,
       config: {
         path: "./postcss.config.js",
       },
-      // inject: {
-      //   insertAt: "top",
-      // },
+      extensions: [".css"],
+      minimize: true,
+      inject: {
+        insertAt: "top",
+      },
     }),
   ],
 };

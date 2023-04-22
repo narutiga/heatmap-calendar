@@ -14,7 +14,6 @@
     "url": "https://github.com/narutiga/heatmap-calendar"
   },
   "scripts": {
-    "build:css": "NODE_ENV=production npx postcss src/index.css -o dist/esm/index.css dist/cjs/index.css",
     "build": "rollup -c",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -26,6 +25,7 @@
     "tslib": "^2.5.0"
   },
   "devDependencies": {
+    "@rollup/plugin-babel": "^6.0.3",
     "@rollup/plugin-commonjs": "^24.1.0",
     "@rollup/plugin-node-resolve": "^15.0.2",
     "@rollup/plugin-typescript": "^11.1.0",
