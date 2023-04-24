@@ -1,3 +1,3 @@
 import "./index.css";
 
-export { Heatmap } from "./component/Heatmap";
+export { default as Heatmap } from "./component/Heatmap";
