@@ -6,7 +6,7 @@ import postcss from "rollup-plugin-postcss";
 import pkg from "./package.json" assert { type: "json" };
 
 export default {
-  input: "src/index.tsx",
+  input: "src/index.ts",
   output: [
     {
       file: pkg.main,
@@ -20,21 +20,18 @@ export default {
     },
   ],
   plugins: [
-    resolve(),
-    commonjs(),
     typescript({
       tsconfig: "./tsconfig.json",
     }),
     postcss({
-      extensions: [".css"],
-      minimize: true,
-      extract: true,
       config: {
         path: "./postcss.config.js",
       },
-      // inject: {
-      //   insertAt: "top",
-      // },
+      extensions: [".css"],
+      minimize: true,
+      extract: true,
     }),
+    resolve(),
+    commonjs(),
   ],
 };
