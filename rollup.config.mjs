@@ -1,13 +1,12 @@
 import commonjs from "@rollup/plugin-commonjs";
 import resolve from "@rollup/plugin-node-resolve";
-import babel from "@rollup/plugin-babel";
 import typescript from "@rollup/plugin-typescript";
 import postcss from "rollup-plugin-postcss";
 
 import pkg from "./package.json" assert { type: "json" };
 
 export default {
-  input: "src/index.tsx",
+  input: "src/index.ts",
   output: [
     {
       file: pkg.main,
@@ -21,12 +20,6 @@ export default {
     },
   ],
   plugins: [
-    resolve(),
-    commonjs(),
-    babel({
-      babelHelpers: "bundled",
-      exclude: "node_modules/**",
-    }),
     typescript({
       tsconfig: "./tsconfig.json",
     }),
@@ -36,9 +29,9 @@ export default {
       },
       extensions: [".css"],
       minimize: true,
-      inject: {
-        insertAt: "top",
-      },
+      extract: true,
     }),
+    resolve(),
+    commonjs(),
   ],
 };
