@@ -92,6 +92,7 @@ const Legend: LegendComponent = ({ colorLevels }) => {
   );
 };
 
+/** @package */
 export const Heatmap: HeatmapComponent = ({
   value,
   endDate = END_DATE,
