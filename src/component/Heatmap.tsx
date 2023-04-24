@@ -91,8 +91,7 @@ const Legend: LegendComponent = ({ colorLevels }) => {
   );
 };
 
-/** @package */
-export const Heatmap: HeatmapComponent = ({
+const Heatmap: HeatmapComponent = ({
   value,
   endDate = END_DATE,
   w = DEFAULT_WIDTH,
@@ -128,3 +127,5 @@ export const Heatmap: HeatmapComponent = ({
     </div>
   );
 };
+
+export default Heatmap;
