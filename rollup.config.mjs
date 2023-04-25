@@ -29,7 +29,9 @@ export default {
       },
       extensions: [".css"],
       minimize: true,
-      extract: true,
+      inject: {
+        insertAt: "top",
+      },
     }),
     resolve(),
     commonjs(),
