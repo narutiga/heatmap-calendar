@@ -5,7 +5,11 @@ module.exports = {
     "./src/component/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      gridTemplateRows: {
+        7: "repeat(7, minmax(0, 1fr))",
+      },
+    },
   },
   plugins: [],
 };
