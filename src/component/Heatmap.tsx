@@ -110,7 +110,7 @@ const Heatmap: HeatmapComponent = ({
 
   return (
     <div style={{ width: `${w}` }}>
-      <div className="grid grid-flow-col grid-rows-7 gap-0.5">
+      <div className="grid grid-flow-col grid-rows-6 gap-0.5">
         {yearData.map((item, index) => {
           const color = getColor(item.count);
           return (
