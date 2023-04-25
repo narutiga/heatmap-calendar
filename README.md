@@ -1,4 +1,4 @@
-Attention: This project is currently under development.
+Attention: This project is currently under development.It only works with Client-Side Rendering (CSR).
 
 # @narutiga/heatmap-calendar
 
