@@ -1,4 +1,4 @@
-Attention: This project is currently under development.It only works with Client-Side Rendering (CSR).
+Attention: This project is currently under development and provides only the minimum functionality.
 
 # @narutiga/heatmap-calendar
 
@@ -17,7 +17,13 @@ yarn add @narutiga/heatmap-calendar
 
 ## Usage
 
-Import the 'Heatmap' component and use it in your React app.
+1. Import the 'Heatmap' component and use it in your React app.
+
+2. Import the style file into your main CSS file.
+
+```css
+@import "@narutiga/heatmap-calendar/dist/esm/index.css";
+```
 
 ## Configuration
 
